@@ -2,6 +2,10 @@
   <ellipse cx="240" cy="100" rx="220" ry="30" fill="purple" />
   <ellipse cx="220" cy="70" rx="190" ry="20" fill="lime" />
   <ellipse cx="210" cy="45" rx="170" ry="15" fill="yellow" />
+  <g>
+    <rect x="100" y="20" width="30" height="30" rx="5" ry="15" fill="red"/>
+    <circle cx="95" cy="95" r="40" fill="blue" />
+  </g>
   <!-- Comentariu ampulea-->
   Sorry, your browser does not support inline SVG.
 </svg>

@@ -1,4 +1,5 @@
-from element import Element
+from common.context import MyContext
+from common.element import Element
 import cairo
 
 class SVG(Element):
@@ -9,10 +10,11 @@ class SVG(Element):
         self.width = int(attrib['width'].replace('px', ''))
         self.height = int(attrib['height'].replace('px', ''))
         self.surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, self.width, self.height)
-        self.ctx = cairo.Context(self.surface)
+        self.ctx = MyContext(cairo.Context(self.surface), self.width, self.height)
         for child in children:
             self.add_child(child)
 
-    def draw_element(self, ctx: cairo.Context):
+    def draw(self):
         for child in self.children:
             child.draw_element(self.ctx)
+        self.surface.write_to_png('output.png')
