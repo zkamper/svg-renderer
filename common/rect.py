@@ -40,7 +40,6 @@ class Rect(Element):
         rx, ry = percent_to_float(rx, x), percent_to_float(ry, y)
         return x, y, width, height, rx, ry
 
-
     def draw_element(self, ctx: MyContext):
         draw_ctx = ctx.ctx
         x, y, width, height, rx, ry = self.get_attributes(ctx)
