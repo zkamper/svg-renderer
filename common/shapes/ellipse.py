@@ -21,7 +21,7 @@ class Ellipse(Element):
     def draw_element(self, ctx: MyContext):
         draw_ctx = ctx.ctx
         x, y, rx, ry = self.get_attributes(ctx)
-        draw_ctx.set_source_rgb(*self.style.fill)
+        draw_ctx.set_source_rgba(*self.style.fill)
         draw_ctx.set_line_width(self.style.stroke_width)
         draw_ctx.save()
         draw_ctx.translate(x, y)
@@ -30,5 +30,4 @@ class Ellipse(Element):
         draw_ctx.restore()
         draw_ctx.fill_preserve()
         draw_ctx.set_source_rgba(*self.style.stroke)
-        if self.style.stroke_width != -1:
-            draw_ctx.stroke()
+        draw_ctx.stroke()

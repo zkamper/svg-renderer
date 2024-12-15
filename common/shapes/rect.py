@@ -43,7 +43,7 @@ class Rect(Element):
     def draw_element(self, ctx: MyContext):
         draw_ctx = ctx.ctx
         x, y, width, height, rx, ry = self.get_attributes(ctx)
-        draw_ctx.set_source_rgb(*self.style.fill)
+        draw_ctx.set_source_rgba(*self.style.fill)
         draw_ctx.set_line_width(self.style.stroke_width)
         if rx == 0 and ry == 0:
             draw_ctx.rectangle(x, y, width, height)
@@ -51,5 +51,4 @@ class Rect(Element):
             draw_rounded_rectangle(draw_ctx, x, y, width, height, rx, ry)
         draw_ctx.fill_preserve()
         draw_ctx.set_source_rgba(*self.style.stroke)
-        if self.style.stroke_width != -1:
-            draw_ctx.stroke()
+        draw_ctx.stroke()

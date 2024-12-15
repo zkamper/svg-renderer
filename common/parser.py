@@ -1,25 +1,15 @@
 from lxml import etree as et
 
-from common.circle import Circle
 from common.element import Element
-from common.ellipse import Ellipse
-from common.rect import Rect
 from common.svg import SVG
-
+from utils.gen_element import gen_element
 
 TEST_PATH = '../test.svg'
 
 
 def create_element(tag: str, attrib: dict, elem) -> 'Element':
     children = [create_element(child.tag, child.attrib, child) for child in elem if not isinstance(child, et._Comment)]
-    if 'rect' in tag:
-        element = Rect(attrib)
-    elif 'circle' in tag:
-        element = Circle(attrib)
-    elif 'ellipse' in tag:
-        element = Ellipse(attrib)
-    else:
-        element = Element(tag, attrib)
+    element = gen_element(tag, attrib)
     element.children = children
     return element
 

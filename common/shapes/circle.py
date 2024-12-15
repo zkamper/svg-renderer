@@ -20,10 +20,9 @@ class Circle(Element):
     def draw_element(self, ctx: MyContext):
         draw_ctx = ctx.ctx
         x, y, r = self.get_attributes(ctx)
-        draw_ctx.set_source_rgb(*self.style.fill)
+        draw_ctx.set_source_rgba(*self.style.fill)
         draw_ctx.set_line_width(self.style.stroke_width)
         draw_ctx.arc(x, y, r, 0, 2 * 3.141592)
         draw_ctx.fill_preserve()
         draw_ctx.set_source_rgba(*self.style.stroke)
-        if self.style.stroke_width != -1:
-            draw_ctx.stroke()
+        draw_ctx.stroke()
