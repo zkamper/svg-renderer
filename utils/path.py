@@ -21,10 +21,15 @@ def clean_path(path):
     path = path.lstrip().rstrip()
     path = re.sub(r'\s+', ' ', path)
     path = re.sub(r'([a-zA-Z])\s+(-?\d)', r'\1\2', path)
+
+    # split dupa componente path
+    for _ in range(2):
+        path = re.sub(r'([0-9z])\s+([a-zA-Z])', r'\1;\2', path)
+    path = path.split(sep=';')
     return path
 
 
-def split_path(path):
+def gen_path(path):
     pass
 
 
