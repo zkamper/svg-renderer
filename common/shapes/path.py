@@ -37,5 +37,5 @@ class Path(Element):
                 prev_control_x, prev_control_y = prev_control
         draw_ctx.set_source_rgba(*self.style.fill)
         draw_ctx.fill_preserve()
-        draw_ctx.set_source_rgba(*self.style.stroke[:3], 1)
+        draw_ctx.set_source_rgba(*self.style.stroke)
         draw_ctx.stroke()

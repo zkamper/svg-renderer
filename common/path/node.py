@@ -88,8 +88,8 @@ class CubicBezier(Node):
 
     def draw_path(self, ctx: cairo.Context):
         if self.relative:
-            ctx.rel_curve_to(self.x1, self.y1, self.x2, self.y2, self.x, self.y)
             x, y = ctx.get_current_point()
+            ctx.rel_curve_to(self.x1, self.y1, self.x2, self.y2, self.x, self.y)
             return x + self.x2, y + self.y2
         else:
             ctx.curve_to(self.x1, self.y1, self.x2, self.y2, self.x, self.y)
@@ -125,8 +125,8 @@ class QuadraticBezier(Node):
 
     def draw_path(self, ctx: cairo.Context):
         if self.relative:
-            ctx.rel_curve_to(self.x1, self.y1, self.x1, self.y1, self.x, self.y)
             x, y = ctx.get_current_point()
+            ctx.rel_curve_to(self.x1, self.y1, self.x1, self.y1, self.x, self.y)
             return x + self.x1, y + self.y1
         else:
             ctx.curve_to(self.x1, self.y1, self.x1, self.y1, self.x, self.y)

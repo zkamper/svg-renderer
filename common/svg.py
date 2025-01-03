@@ -9,6 +9,10 @@ class SVG(Element):
             raise ValueError('attribute \'width\' or \'height\' not found')
         self.width = int(attrib['width'].replace('px', ''))
         self.height = int(attrib['height'].replace('px', ''))
+        if 'viewBox' in attrib:
+            self.viewBox = attrib['viewBox']
+            self.width = int(self.viewBox.split(' ')[2])
+            self.height = int(self.viewBox.split(' ')[3])
         self.surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, self.width, self.height)
         self.ctx = MyContext(cairo.Context(self.surface), self.width, self.height)
         for child in children:
