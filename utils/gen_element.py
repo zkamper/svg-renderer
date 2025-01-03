@@ -2,6 +2,7 @@ from common.shapes.circle import Circle
 from common.element import Element
 from common.shapes.ellipse import Ellipse
 from common.shapes.line import Line
+from common.shapes.path import Path
 from common.shapes.polyline import Polyline
 from common.shapes.rect import Rect
 
@@ -18,4 +19,6 @@ def gen_element(tag: str, attrib: dict) -> 'Element':
         element = Polyline(attrib)
     elif 'line' in tag:
         element = Line(attrib)
+    elif 'path' in tag:
+        element = Path(attrib)
     return element
