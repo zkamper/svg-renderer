@@ -4,6 +4,9 @@ from common.element import Element
 from utils.conversions import percent_to_float
 
 class Line(Element):
+    """
+    Element de tip <line>
+    """
     def __init__(self, attrib: dict):
         super().__init__('line', attrib)
         self.style = Styles(attrib)

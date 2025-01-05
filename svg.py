@@ -1,7 +1,7 @@
 import os
 import sys
 
-from common.parser import Parser, gen_parser
+from common.parser import gen_parser
 
 
 if __name__ == "__main__":
@@ -12,7 +12,7 @@ if __name__ == "__main__":
         if not os.path.exists(svg_file):
             raise Exception(f'File "{svg_file}" not found')
         parser = gen_parser(svg_file)
-        svg = parser.create_svg()
+        svg = parser.create_svg(svg_file)
         svg.draw()
     except Exception as e:
         print(e)

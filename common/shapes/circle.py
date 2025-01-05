@@ -7,11 +7,19 @@ from common.element import Element
 from utils.conversions import percent_to_float
 
 class Circle(Element):
+    """
+    Element de tip <circle>
+    """
     def __init__(self, attrib: dict):
         super().__init__('circle', attrib)
         self.style = Styles(attrib)
 
     def get_attributes(self, ctx: MyContext):
+        """
+        Returnează coordonatele și raza cercului
+        :param ctx: contextul curent (pentru calculele cu procente)
+        :return:
+        """
         cx = self.attrib.get('cx', '0')
         cy = self.attrib.get('cy', '0')
         r = self.attrib.get('r', '0')
