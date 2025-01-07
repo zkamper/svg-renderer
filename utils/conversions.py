@@ -17,3 +17,13 @@ def points_str_to_corods(points: str) -> list[tuple[float, float]]:
 
 def mirrored_point(point: tuple[float, float], center: tuple[float, float]) -> tuple[float, float]:
     return 2 * center[0] - point[0], 2 * center[1] - point[1]
+
+def float_conversions(value: str) -> float:
+    """
+    Convertește un string din intervalul [0-1] sau de forma 'xx%' într-un float
+    :param value: stringul de convertit
+    :return: valoarea float
+    """
+    if '%' in value:
+        return float(value.replace('%', '')) / 100
+    return float(value)

@@ -27,6 +27,9 @@ def draw_rounded_rectangle(ctx: cairo.Context, x: float, y: float, width: float,
 
 
 class Rect(Element):
+    """
+    Element de tip <rect>
+    """
     def __init__(self, attrib: dict):
         super().__init__('rect', attrib)
         self.style = Styles(attrib)

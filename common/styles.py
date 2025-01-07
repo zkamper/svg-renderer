@@ -1,6 +1,9 @@
 from matplotlib.colors import to_rgb, to_rgba
 from PIL import ImageColor
 
+from utils.conversions import float_conversions
+
+
 class Styles:
     """
     Clasă ce reține stilurile elementelor.
@@ -12,7 +15,7 @@ class Styles:
         if 'fill' in attrib and attrib['fill'] == 'none':
             self.fill = (0, 0, 0, 0)
         else:
-            self.fill = ImageColor.getrgb(attrib.get('fill', 'white'))
+            self.fill = ImageColor.getrgb(attrib.get('fill', 'black'))
 
         self.fill = tuple([c / 255.0 for c in self.fill])
         self.fill = to_rgb(self.fill) + (1,) if len(self.fill) == 3 else to_rgba(self.fill)
@@ -23,6 +26,11 @@ class Styles:
             self.stroke = to_rgb(self.stroke) + (1,) if len(self.stroke) == 3 else to_rgba(self.stroke)
         else:
             self.stroke = (0, 0, 0, 0)
+
+        if 'fill-opacity' in attrib:
+            self.fill = self.fill[:3] + (float_conversions(attrib['fill-opacity']),)
+        if 'stroke-opacity' in attrib:
+            self.stroke = self.stroke[:3] + (float_conversions(attrib['stroke-opacity']),)
 
         self.stroke_width = float(attrib.get('stroke-width', 1))
 

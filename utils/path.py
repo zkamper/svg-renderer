@@ -24,6 +24,7 @@ def clean_path(path: str) -> list[str]:
     :return: lista de comenzi pentru `path
     """
     # adaugă spații între tokeni
+    path = path.replace(',', ' ')
     for token in TOKEN_LIST:
         if token != '-':
             path = path.replace(token, ' ' + token + ' ')

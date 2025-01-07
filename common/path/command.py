@@ -26,8 +26,8 @@ class Command:
         Desenează comanda curentă în contextul dat.
 
         Unele comenzi au nevoie de punctul de control anterior, de aceea comanda poate returna:
-        - coordonatele punctului de control precedent
-        - coordonatele unde s-a terminat ultima comandă
+        coordonatele punctului de control precedent
+        sau coordonatele unde s-a terminat ultima comandă
         :param ctx: contextul de desenare
         :return:
         """

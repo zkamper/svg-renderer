@@ -26,6 +26,8 @@ class Path(Element):
         path_nodes = self.get_attributes()
         draw_ctx.set_source_rgba(*self.style.fill)
         draw_ctx.set_line_width(self.style.stroke_width)
+
+        draw_ctx.move_to(0, 0)
         prev_control_x, prev_control_y = draw_ctx.get_current_point()
 
         for node in path_nodes:
@@ -37,7 +39,7 @@ class Path(Element):
             if prev_control is not None:
                 prev_control_x, prev_control_y = prev_control
 
-        draw_ctx.set_source_rgba(*self.style.fill)
+        draw_ctx.set_source_rgba(*self.style.fill[:3], 1)
         draw_ctx.fill_preserve()
         draw_ctx.set_source_rgba(*self.style.stroke)
         draw_ctx.stroke()
